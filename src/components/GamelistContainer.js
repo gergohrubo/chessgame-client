@@ -1,48 +1,27 @@
 import React, { Component } from 'react';
 import Gamelist from './Gamelist'
 import { connect } from 'react-redux'
-import { getAllGames } from '../actions'
+import { getAllGames, joinGame } from '../actions'
 
 class GamelistContainer extends Component {
-  state = {
-    games: [
-      {
-        id: 1,
-        user_id_1: 2,
-        user_id_2: 5,
-        isOpen: false,
-        hasFinished: false
-      },
-      {
-        id: 2,
-        user_id_1: 1,
-        user_id_2: 3,
-        isOpen: false,
-        hasFinished: true
-      },
-      {
-        id: 3,
-        user_id_1: 4,
-        user_id_2: null,
-        isOpen: true,
-        hasFinished: false
-      }
-    ]
-  }
   componentDidMount() {
     this.props.dispatch(getAllGames())
+  }
+  joinHandle = id => {
+    this.props.dispatch(joinGame(this.props.user.username, id))
   }
   render() {
     return (
       <div className="gamelist-container">
-        <Gamelist games={this.props.games} />
+        <Gamelist games={this.props.games} onClick={this.joinHandle} />
       </div>
     );
   }
 }
 
 const mapStateToProps = (state) => ({
-  games: state.listOfGames
+  games: state.listOfGames,
+  user: state.currentUser
 })
 
 export default connect(mapStateToProps)(GamelistContainer);

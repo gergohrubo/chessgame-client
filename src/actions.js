@@ -87,3 +87,5 @@ export const createGame = (username, push) => dispatch => {
       }
     })
 }
+
+export const joinGame = (username, gameID) => dispatch => { }
