@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 
 function Login(props) {
   return (
@@ -11,6 +12,7 @@ function Login(props) {
         <input name="password" placeholder="1234" onChange={props.onChange} /><br />
         <button type="submit">Log in</button>
       </form>
+      <Link to="/signup"> Don't have an account yet? Sign up!</Link>
     </div>
   );
 }
