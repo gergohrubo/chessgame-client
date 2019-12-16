@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Login from './Login'
+import { connect } from 'react-redux'
+import { sendLogin } from '../actions'
 
 class LoginContainer extends Component {
   state = {
@@ -11,8 +13,8 @@ class LoginContainer extends Component {
   }
   onSubmit = event => {
     event.preventDefault()
+    this.props.dispatch(sendLogin(this.state.username, this.state.password, this.props.history.push))
     this.setState({ username: '', password: '' })
-    console.log('form submitted')
   }
   render() {
     return (
@@ -23,4 +25,5 @@ class LoginContainer extends Component {
   }
 }
 
-export default LoginContainer;
+
+export default connect()(LoginContainer);

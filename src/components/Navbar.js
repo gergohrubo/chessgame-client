@@ -1,12 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
+import '../styles/Navbar.css'
 
 function Navbar(props) {
   return (
-    <div>
+    <div className="navbar">
       <Link to="/"> Homepage</Link>
-      <Link to="/login"> Login</Link>
-      <Link to="/signup"> Signup</Link>
+      {!props.user.username && <Link to="/login"> Login</Link>}
+      {props.user.username && <p className='navbar-username'>{props.user.username}</p>}
     </div>
   );
 }

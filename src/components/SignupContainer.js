@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Signup from './Signup'
+import { connect } from 'react-redux'
+import { signUp } from '../actions'
 
 class SignupContainer extends Component {
   state = {
@@ -11,8 +13,8 @@ class SignupContainer extends Component {
   }
   onSubmit = event => {
     event.preventDefault()
+    this.props.dispatch(signUp(this.state.username, this.state.password, this.props.history.push))
     this.setState({ username: '', password: '' })
-    console.log('form submitted')
   }
   render() {
     return (
@@ -23,4 +25,4 @@ class SignupContainer extends Component {
   }
 }
 
-export default SignupContainer;
+export default connect()(SignupContainer);
