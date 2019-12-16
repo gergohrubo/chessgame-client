@@ -1,0 +1,28 @@
+.login-container {
+  text-align: center;
+  width: 50%;
+  margin: 0 auto;
+  border: none;
+}
+
+.login-input {
+  font-size: 18px;
+  color: #555555;
+  line-height: 1.2;
+  display: block;
+  width: 100%;
+  height: 52px;
+  background: transparent;
+  padding: 0 5px;
+  border-bottom: 2px solid #d9d9d9;
+}
+
+input {
+  border: none;
+  outline: none;
+}
+
+input:focus {
+  border-color: #BF6A24;
+  transition: all 0.8s;
+}
