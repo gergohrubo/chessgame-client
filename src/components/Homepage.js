@@ -12,10 +12,9 @@ class Homepage extends Component {
   render() {
     return (
       <div>
-        <div className="homepage-container">
+        <div>
           <h1>This is the homepage</h1>
           <GamelistContainer />
-          <UserlistContainer />
         </div>
         {this.props.user.username && <CreateGameButton onClick={this.onClick} />}
       </div>

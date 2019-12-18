@@ -4,6 +4,7 @@ import Homepage from './components/Homepage'
 import LoginContainer from './components/LoginContainer'
 import SignupContainer from './components/SignupContainer'
 import NavbarContainer from './components/NavbarContainer'
+import GameDetailPageContainer from './components/GameDetailPageContainer'
 import Footer from './components/Footer'
 import Gamepage from './components/Gamepage'
 import './App.css';
@@ -28,7 +29,8 @@ class App extends React.Component {
         <Switch>
           <Route path="/login" component={LoginContainer} />
           <Route path="/signup" component={SignupContainer} />
-          <Route path="/game" component={Gamepage} />
+          {/*<Route path="/game" component={Gamepage} />*/}
+          <Route path="/game/:id" component={GameDetailPageContainer} />
           <Route component={Homepage} />
         </Switch>
         <Footer />
