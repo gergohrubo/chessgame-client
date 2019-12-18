@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import GamelistContainer from './GamelistContainer'
 import UserlistContainer from './UserlistContainer'
 import { createGame } from '../actions'
+import CreateGameButton from './CreateGameButton'
 
 class Homepage extends Component {
   onClick = () => {
@@ -10,11 +11,12 @@ class Homepage extends Component {
   }
   render() {
     return (
-      <div className="homepage-container">
-        <h1>This is the homepage</h1>
-        <GamelistContainer />
-        <UserlistContainer />
-        {this.props.user.username && <button onClick={this.onClick}>Create a new game!</button>}
+      <div>
+        <div>
+          <h1>This is the homepage</h1>
+          <GamelistContainer />
+        </div>
+        {this.props.user.username && <CreateGameButton onClick={this.onClick} />}
       </div>
     );
   }

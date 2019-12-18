@@ -2,8 +2,6 @@ import React from 'react';
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
@@ -28,29 +26,27 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function Userlist(props) {
+export default function CreateGameButton(props) {
   const classes = useStyles();
 
   return (
     <React.Fragment>
       <CssBaseline />
       <Container className={classes.cardGrid} maxWidth="md">
-        <Typography gutterBottom variant="h5" component="h2">
-          List of users
-        </Typography>
         {/* End hero unit */}
         <Grid container spacing={4}>
-          {props.users && props.users.map(user => (
-            <Grid item key={user.name} xs={12} sm={6} md={4}>
-              <Card className={classes.card}>
-                <CardContent className={classes.cardContent}>
-                  <Typography gutterBottom variant="h5" component="h2">
-                    {user.name}
-                  </Typography>
-                </CardContent>
-              </Card>
-            </Grid>
-          ))}
+          <Grid item xs={12} sm={6} md={4}>
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              color="primary"
+              className={classes.submit}
+              onClick={props.onClick}
+            >
+              Create New Game
+      </Button>
+          </Grid>
         </Grid>
       </Container>
     </React.Fragment>
