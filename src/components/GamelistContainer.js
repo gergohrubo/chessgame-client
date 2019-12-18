@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import Gamelist from './Gamelist'
 import { connect } from 'react-redux'
-import { getAllGames, joinGame } from '../actions'
+import { getAllGames, joinGame, fetchAllPlayers } from '../actions'
 
 class GamelistContainer extends Component {
   componentDidMount() {
     this.props.dispatch(getAllGames())
+    this.props.dispatch(fetchAllPlayers())
   }
-  joinHandle = id => {
-    this.props.dispatch(joinGame(this.props.user.username, id))
+  joinHandle = (id, color) => {
+    this.props.dispatch(joinGame(this.props.user.jwt, id, color))
   }
   render() {
     return (
@@ -21,6 +22,7 @@ class GamelistContainer extends Component {
 
 const mapStateToProps = (state) => ({
   games: state.listOfGames,
+  //players: state.listOfPlayers,
   user: state.currentUser
 })
 

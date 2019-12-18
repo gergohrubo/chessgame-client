@@ -1,6 +1,7 @@
 import request from 'superagent'
 
-const baseUrl = 'https://glacial-stream-52474.herokuapp.com'
+// const baseUrl = 'https://glacial-stream-52474.herokuapp.com'
+const baseUrl = 'http://localhost:4000'
 
 export const LOGGED_IN = 'LOGGED_IN'
 
@@ -88,4 +89,30 @@ export const createGame = (username, push) => dispatch => {
     })
 }
 
-export const joinGame = (username, gameID) => dispatch => { }
+export const joinGame = (jwt, gameId, color, push) => dispatch => {
+  const data = { jwt, gameId, color }
+  request
+    .post(`${baseUrl}/join`)
+    .send(data)
+    .then(response => {
+      console.log(response.body)
+      if (push) {
+        push('/')
+      }
+    })
+}
+
+export const ALL_PLAYERS = 'ALL_PLAYERS'
+
+const saveAllPlayers = data => ({
+  type: ALL_PLAYERS,
+  payload: data
+})
+
+export const fetchAllPlayers = () => dispatch => {
+  request
+    .get(`${baseUrl}/player`)
+    .then(response => {
+      dispatch(saveAllPlayers(response.body))
+    })
+}

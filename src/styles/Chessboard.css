@@ -1,0 +1,17 @@
+.square-black {
+  display: inline-block;
+  width: 7%;
+  height: 7vh;
+  background-color: #914e09;
+}
+
+.square-white {
+  display: inline-block;
+  width: 7%;
+  height: 7vh;
+  background-color: #e6bc91;
+}
+
+.chessboard-row {
+  height: 7vh;
+}
