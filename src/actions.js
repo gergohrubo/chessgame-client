@@ -1,7 +1,7 @@
 import request from 'superagent'
 
-const baseUrl = 'https://glacial-stream-52474.herokuapp.com'
-//const baseUrl = 'http://localhost:4000'
+//const baseUrl = 'https://glacial-stream-52474.herokuapp.com'
+const baseUrl = 'http://localhost:4000'
 
 export const LOGGED_IN = 'LOGGED_IN'
 
@@ -117,10 +117,10 @@ export const fetchAllPlayers = () => dispatch => {
     })
 }
 
-export const makeMove = (figureId, coordinate_X, coordinate_Y, gameId) => dispatch => {
+export const makeMove = (figureId, coordinate_X, coordinate_Y, gameId, jwt) => dispatch => {
   console.log('typeofs', typeof figureId, typeof coordinate_X, typeof coordinate_Y, typeof gameId)
   console.log('figure Id', figureId)
-  const data = { figureId, coordinate_X, coordinate_Y, gameId }
+  const data = { figureId, coordinate_X, coordinate_Y, gameId, jwt }
   request
     .put(`${baseUrl}/move`)
     .send(data)

@@ -107,7 +107,7 @@ class ChessboardContainer extends Component {
         hasSelected: false,
         board: newBoard
       })
-      this.props.dispatch(makeMove(this.state.selectedPiece.figureId, piece.coordinate_X, piece.coordinate_Y, parseInt(this.props.gameID)))
+      this.props.dispatch(makeMove(this.state.selectedPiece.figureId, piece.coordinate_X, piece.coordinate_Y, parseInt(this.props.gameID), this.props.user.jwt))
     }
   }
   render() {
