@@ -116,3 +116,15 @@ export const fetchAllPlayers = () => dispatch => {
       dispatch(saveAllPlayers(response.body))
     })
 }
+
+export const makeMove = (figureId, coordinate_X, coordinate_Y, gameId) => dispatch => {
+  console.log('typeofs', typeof figureId, typeof coordinate_X, typeof coordinate_Y, typeof gameId)
+  console.log('figure Id', figureId)
+  const data = { figureId, coordinate_X, coordinate_Y, gameId }
+  request
+    .put(`${baseUrl}/move`)
+    .send(data)
+    .then(response => {
+      console.log(response)
+    })
+}

@@ -1,7 +1,10 @@
 export default function assignPlayers(game) {
   let playerWhite
   let playerBlack
-  if (game.users.length === 0) {
+  if (!game.users) {
+    playerWhite = null
+    playerBlack = null
+  } else if (game.users.length === 0) {
     playerWhite = null
     playerBlack = null
   } else if (game.users.length === 1) {

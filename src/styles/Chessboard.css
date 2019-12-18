@@ -1,17 +1,32 @@
+.square {
+  display: inline-block;
+  width: 7vw;
+  height: 7vw;
+  z-index:2;
+}
+
 .square-black {
   display: inline-block;
-  width: 7%;
-  height: 7vh;
-  background-color: #914e09;
+  width: 7vw;
+  height: 7vw;
+  background-color: #D18B46;
+  z-index:2;
 }
 
 .square-white {
   display: inline-block;
-  width: 7%;
-  height: 7vh;
-  background-color: #e6bc91;
+  width: 7vw;
+  height: 7vw;
+  background-color: #FECEA0;
 }
 
 .chessboard-row {
-  height: 7vh;
+  height: 7vw;
+}
+
+.piece-img {
+  width: 7vw;
+  height: 7vw;
+  z-index: 1;
+  opacity: 1;
 }
