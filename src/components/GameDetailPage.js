@@ -25,6 +25,21 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
+function checkIfThereIsAPlayer(game, color) {
+  if (game.users) {
+    if (game.users.length > 0) {
+      if (game.users.length > 1) {
+        return true
+      } else {
+        if (game.users[0]['player']['color'] === color) {
+          return true
+        }
+      }
+    }
+  }
+  return false
+}
+
 function GameDetailPage(props) {
   const classes = useStyles();
   return (
@@ -43,12 +58,12 @@ function GameDetailPage(props) {
                 Black player: {assignPlayers(game)['black']}
               </Typography>
             </CardContent>
-            {/*(game.users.length < 2)*/true && <CardActions>
+            {!checkIfThereIsAPlayer(game, 'white') && props.user.jwt && <CardActions>
               <Button size="small" color="primary" onClick={() => props.onClick(game.id, "white")}>
                 Join as white
                 </Button>
             </CardActions>}
-            {/*(game.users.length < 2)*/true && <CardActions>
+            {!checkIfThereIsAPlayer(game, 'black') && props.user.jwt && <CardActions>
               <Button size="small" color="primary" onClick={() => props.onClick(game.id, "black")}>
                 Join as black
               </Button>

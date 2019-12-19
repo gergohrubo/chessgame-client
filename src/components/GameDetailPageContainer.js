@@ -11,7 +11,7 @@ class GameDetailPageContainer extends Component {
   render() {
     return (
       <div>
-        <GameDetailPage pageID={this.props.match.params.id} games={this.props.games} onClick={this.joinHandle} />
+        <GameDetailPage pageID={this.props.match.params.id} games={this.props.games} onClick={this.joinHandle} user={this.props.user} />
         <ChessboardContainer gameID={this.props.match.params.id} />
       </div>
     );
