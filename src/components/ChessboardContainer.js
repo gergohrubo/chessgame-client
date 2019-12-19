@@ -45,7 +45,7 @@ class ChessboardContainer extends Component {
         figureId: null
       }
     }))
-    if (game) {
+    if (game && game.users) {
       if (game.users.length > 0) {
         const whoseTurnIsIt = game.users.find(user => user.id === game.currentTurn)
         if (whoseTurnIsIt) {
