@@ -36,7 +36,7 @@ export default function Album() {
           Footer
         </Typography>
         <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
-          Something here to give the footer a purpose!
+          Made by Nadia & Gergo at Codaisseur #33
         </Typography>
         <Copyright />
       </footer>
