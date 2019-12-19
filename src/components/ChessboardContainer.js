@@ -22,9 +22,18 @@ class ChessboardContainer extends Component {
       coordinate_X: null,
       coordinate_Y: null,
       figureId: null
-    }
+    },
+    whoseTurnIsIt: ''
   }
   componentDidMount() {
+    this.updateBoard()
+  }
+  componentDidUpdate(prevProps) {
+    if (prevProps !== this.props) {
+      this.updateBoard()
+    }
+  }
+  updateBoard() {
     const game = this.props.games.find(game => game.id === parseInt(this.props.gameID))
     const newBoard = this.state.board.map((row, rowIndex) => row.map((square, squareIndex) => {
       return {
@@ -37,6 +46,12 @@ class ChessboardContainer extends Component {
       }
     }))
     if (game) {
+      if (game.users.length > 0) {
+        const whoseTurnIsIt = game.users.find(user => user.id === game.currentTurn)
+        if (whoseTurnIsIt) {
+          this.setState({ whoseTurnIsIt: whoseTurnIsIt.name })
+        }
+      }
       if (game.figures) {
         game.figures.forEach(figure => {
           newBoard[figure['coordinate_Y']][figure['coordinate_X']] = {
@@ -54,37 +69,6 @@ class ChessboardContainer extends Component {
     this.setState({
       board: newBoard
     })
-  }
-  componentDidUpdate(prevProps) {
-    if (prevProps !== this.props) {
-      const game = this.props.games.find(game => game.id === parseInt(this.props.gameID))
-      const newBoard = this.state.board.map((row, rowIndex) => row.map((square, squareIndex) => {
-        return {
-          imgsrc: null,
-          type: null,
-          color: null,
-          coordinate_X: squareIndex,
-          coordinate_Y: rowIndex,
-          figureId: null
-        }
-      }))
-      if (game.figures) {
-        game.figures.forEach(figure => {
-          newBoard[figure['coordinate_Y']][figure['coordinate_X']] = {
-            imgsrc: imgSrcAssigner(figure['kind'], figure['color'], figure['coordinate_X'], figure['coordinate_Y']),
-            type: figure['kind'],
-            color: figure['color'],
-            coordinate_X: figure['coordinate_X'],
-            coordinate_Y: figure['coordinate_Y'],
-            figureId: figure['id']
-          }
-        })
-      }
-      newBoard.reverse()
-      this.setState({
-        board: newBoard
-      })
-    }
   }
   onClick = (piece) => {
     console.log('clicked!', piece)
@@ -113,7 +97,7 @@ class ChessboardContainer extends Component {
   render() {
     return (
       <div>
-        <Chessboard board={this.state.board} onClick={this.onClick} />
+        <Chessboard board={this.state.board} onClick={this.onClick} errors={this.props.errors} whoseTurnIsIt={this.state.whoseTurnIsIt} />
       </div>
     );
   }
@@ -121,7 +105,40 @@ class ChessboardContainer extends Component {
 
 const mapStateToProps = (state) => ({
   games: state.listOfGames,
-  user: state.currentUser
+  user: state.currentUser,
+  errors: state.errors
 })
 
 export default connect(mapStateToProps)(ChessboardContainer);
+
+
+
+//const game = this.props.games.find(game => game.id === parseInt(this.props.gameID))
+      // const newBoard = this.state.board.map((row, rowIndex) => row.map((square, squareIndex) => {
+      //   return {
+      //     imgsrc: null,
+      //     type: null,
+      //     color: null,
+      //     coordinate_X: squareIndex,
+      //     coordinate_Y: rowIndex,
+      //     figureId: null
+      //   }
+      // }))
+      // if (game) {
+      //   if (game.figures) {
+      //     game.figures.forEach(figure => {
+      //       newBoard[figure['coordinate_Y']][figure['coordinate_X']] = {
+      //         imgsrc: imgSrcAssigner(figure['kind'], figure['color'], figure['coordinate_X'], figure['coordinate_Y']),
+      //         type: figure['kind'],
+      //         color: figure['color'],
+      //         coordinate_X: figure['coordinate_X'],
+      //         coordinate_Y: figure['coordinate_Y'],
+      //         figureId: figure['id']
+      //       }
+      //     })
+      //   }
+      // }
+      // newBoard.reverse()
+      // this.setState({
+      //   board: newBoard
+      // })

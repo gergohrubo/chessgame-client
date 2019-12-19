@@ -1,4 +1,4 @@
-import { LOGGED_IN } from '../actions'
+import { LOGGED_IN, LOG_OUT } from '../actions'
 
 const initialState = {
   username: '',
@@ -10,6 +10,8 @@ export default function (state = initialState, action) {
     case LOGGED_IN:
       const { username, jwt } = action.payload
       return { username, jwt }
+    case LOG_OUT:
+      return { username: '', jwt: '' }
     default:
       return state
   }

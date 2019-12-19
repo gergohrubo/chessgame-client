@@ -118,13 +118,48 @@ export const fetchAllPlayers = () => dispatch => {
 }
 
 export const makeMove = (figureId, coordinate_X, coordinate_Y, gameId, jwt) => dispatch => {
-  console.log('typeofs', typeof figureId, typeof coordinate_X, typeof coordinate_Y, typeof gameId)
-  console.log('figure Id', figureId)
   const data = { figureId, coordinate_X, coordinate_Y, gameId, jwt }
   request
     .put(`${baseUrl}/move`)
     .send(data)
     .then(response => {
       console.log(response)
+      dispatch(correctMove())
+    })
+    .catch(error => {
+      console.log(error.status)
+      switch (error.status) {
+        case 400:
+          dispatch(notYourMove())
+          break
+        case 401:
+          console.log('INVALID MOVE!!!!')
+          dispatch(invalidMove())
+      }
+      console.error(error)
     })
 }
+
+export const LOG_OUT = 'LOG_OUT'
+
+export const logOut = () => ({
+  type: LOG_OUT
+})
+
+export const NOT_YOUR_MOVE = 'NOT_YOUR_MOVE'
+
+export const notYourMove = () => ({
+  type: NOT_YOUR_MOVE
+})
+
+export const CORRECT_MOVE = 'CORRECT_MOVE'
+
+export const correctMove = () => ({
+  type: CORRECT_MOVE
+})
+
+export const INVALID_MOVE = 'INVALID_MOVE'
+
+export const invalidMove = () => ({
+  type: INVALID_MOVE
+})

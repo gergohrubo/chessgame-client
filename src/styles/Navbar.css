@@ -10,3 +10,7 @@
   right: 0;
   margin: auto 1%;
 }
+
+.logout {
+  display: inline;
+}
