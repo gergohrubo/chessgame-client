@@ -9,6 +9,7 @@ function Chessboard(props) {
       {props.whoseTurnIsIt && <h3>Whose turn is it? {props.whoseTurnIsIt}</h3>}
       {props.errors.notYourMove && props.errors.notYourMove}
       {props.errors.invalidMove && props.errors.invalidMove}
+      {props.errors.isCheck && <h1>{props.errors.isCheck}</h1>}
       {props.board.map((row, indexRow) => {
         return <div className="chessboard-row">{row.map((square, indexColumn) => (
           ((indexRow + indexColumn) % 2 === 1) ?

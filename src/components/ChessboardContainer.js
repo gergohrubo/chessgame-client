@@ -71,27 +71,29 @@ class ChessboardContainer extends Component {
     })
   }
   onClick = (piece) => {
-    console.log('clicked!', piece)
-    console.log('hasbeenselected', this.state.hasSelected)
-    if (!this.state.hasSelected && piece['type'] !== null) {
-      this.setState({
-        hasSelected: true,
-        selectedPiece: {
-          type: piece['type'],
-          color: piece['color'],
-          coordinate_X: piece['coordinate_X'],
-          coordinate_Y: piece['coordinate_Y'],
-          figureId: piece['figureId']
-        }
-      })
-    } else if (this.state.hasSelected) {
-      const newBoard = this.state.board.map(row => [...row])
-      newBoard[this.state.selectedPiece.coordinate_Y][this.state.selectedPiece.coordinate_X]['imgsrc'] = null
-      this.setState({
-        hasSelected: false,
-        board: newBoard
-      })
-      this.props.dispatch(makeMove(this.state.selectedPiece.figureId, piece.coordinate_X, piece.coordinate_Y, parseInt(this.props.gameID), this.props.user.jwt))
+    if (this.props.user.jwt) {
+      console.log('clicked!', piece)
+      console.log('hasbeenselected', this.state.hasSelected)
+      if (!this.state.hasSelected && piece['type'] !== null) {
+        this.setState({
+          hasSelected: true,
+          selectedPiece: {
+            type: piece['type'],
+            color: piece['color'],
+            coordinate_X: piece['coordinate_X'],
+            coordinate_Y: piece['coordinate_Y'],
+            figureId: piece['figureId']
+          }
+        })
+      } else if (this.state.hasSelected) {
+        const newBoard = this.state.board.map(row => [...row])
+        newBoard[this.state.selectedPiece.coordinate_Y][this.state.selectedPiece.coordinate_X]['imgsrc'] = null
+        this.setState({
+          hasSelected: false,
+          board: newBoard
+        })
+        this.props.dispatch(makeMove(this.state.selectedPiece.figureId, piece.coordinate_X, piece.coordinate_Y, parseInt(this.props.gameID), this.props.user.jwt))
+      }
     }
   }
   render() {

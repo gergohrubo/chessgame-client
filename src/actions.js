@@ -1,8 +1,8 @@
 import request from 'superagent'
 
-const baseUrl = 'https://glacial-stream-52474.herokuapp.com'
+//const baseUrl = 'https://glacial-stream-52474.herokuapp.com'
 
-//const baseUrl = 'http://localhost:4000'
+const baseUrl = 'http://localhost:4000'
 
 export const LOGGED_IN = 'LOGGED_IN'
 
@@ -136,6 +136,11 @@ export const makeMove = (figureId, coordinate_X, coordinate_Y, gameId, jwt) => d
         case 401:
           console.log('INVALID MOVE!!!!')
           dispatch(invalidMove())
+          break
+        case 402:
+          console.log('CHECK!!!!')
+          dispatch(check())
+          break
       }
       console.error(error)
     })
@@ -163,4 +168,10 @@ export const INVALID_MOVE = 'INVALID_MOVE'
 
 export const invalidMove = () => ({
   type: INVALID_MOVE
+})
+
+export const CHECK = 'CHECK'
+
+export const check = () => ({
+  type: CHECK
 })
