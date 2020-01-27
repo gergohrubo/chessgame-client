@@ -18,7 +18,7 @@ const useStyles = makeStyles(theme => ({
     flexDirection: 'column',
   },
   cardMedia: {
-    paddingTop: '56.25%', // 16:9
+    paddingTop: '56.25%'
   },
   cardContent: {
     flexGrow: 1,
@@ -49,7 +49,7 @@ function GameDetailPage(props) {
           acc = <Card className={classes.card}>
             <CardContent className={classes.cardContent}>
               <Typography gutterBottom variant="h5" component="h2">
-                Hello this is game number {game.id} {/*game.users && game.users.length > 0 && game.users[0].name*/}
+                Hello this is game number {game.id}
               </Typography>
               <Typography gutterBottom variant="h5" component="h2">
                 White player: {assignPlayers(game)['white']}

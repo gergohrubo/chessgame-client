@@ -19,7 +19,6 @@ function Copyright() {
 
 const useStyles = makeStyles(theme => ({
   footer: {
-    //backgroundColor: theme.palette.background.paper,
     padding: theme.spacing(6),
   },
 }));
@@ -30,7 +29,6 @@ export default function Album() {
   return (
     <React.Fragment>
       <CssBaseline />
-      {/* Footer */}
       <footer className={classes.footer}>
         <Typography variant="h6" align="center" gutterBottom>
           Footer
@@ -40,7 +38,6 @@ export default function Album() {
         </Typography>
         <Copyright />
       </footer>
-      {/* End footer */}
     </React.Fragment>
   );
 }

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import GamelistContainer from './GamelistContainer'
-import UserlistContainer from './UserlistContainer'
 import { createGame } from '../actions'
 import CreateGameButton from './CreateGameButton'
 

@@ -22,7 +22,7 @@ const useStyles = makeStyles(theme => ({
     flexDirection: 'column',
   },
   cardMedia: {
-    paddingTop: '56.25%', // 16:9
+    paddingTop: '56.25%',
   },
   cardContent: {
     flexGrow: 1,
@@ -39,7 +39,6 @@ export default function Gamelist(props) {
         <Typography gutterBottom variant="h5" component="h2">
           List of games
         </Typography>
-        {/* End hero unit */}
         <Grid container spacing={4}>
           {props.games && props.games.map(game => (
             <Grid item key={game.name} xs={12} sm={6} md={4}>
@@ -62,6 +61,6 @@ export default function Gamelist(props) {
           ))}
         </Grid>
       </Container>
-    </React.Fragment >
+    </React.Fragment>
   );
 }

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Chessboard from './Chessboard'
-import Pieces from './Pieces'
 import { connect } from 'react-redux'
 import imgSrcAssigner from '../imgSrcAssigner'
 import { makeMove } from '../actions'
@@ -72,8 +71,6 @@ class ChessboardContainer extends Component {
   }
   onClick = (piece) => {
     if (this.props.user.jwt) {
-      console.log('clicked!', piece)
-      console.log('hasbeenselected', this.state.hasSelected)
       if (!this.state.hasSelected && piece['type'] !== null) {
         this.setState({
           hasSelected: true,
@@ -112,35 +109,3 @@ const mapStateToProps = (state) => ({
 })
 
 export default connect(mapStateToProps)(ChessboardContainer);
-
-
-
-//const game = this.props.games.find(game => game.id === parseInt(this.props.gameID))
-      // const newBoard = this.state.board.map((row, rowIndex) => row.map((square, squareIndex) => {
-      //   return {
-      //     imgsrc: null,
-      //     type: null,
-      //     color: null,
-      //     coordinate_X: squareIndex,
-      //     coordinate_Y: rowIndex,
-      //     figureId: null
-      //   }
-      // }))
-      // if (game) {
-      //   if (game.figures) {
-      //     game.figures.forEach(figure => {
-      //       newBoard[figure['coordinate_Y']][figure['coordinate_X']] = {
-      //         imgsrc: imgSrcAssigner(figure['kind'], figure['color'], figure['coordinate_X'], figure['coordinate_Y']),
-      //         type: figure['kind'],
-      //         color: figure['color'],
-      //         coordinate_X: figure['coordinate_X'],
-      //         coordinate_Y: figure['coordinate_Y'],
-      //         figureId: figure['id']
-      //       }
-      //     })
-      //   }
-      // }
-      // newBoard.reverse()
-      // this.setState({
-      //   board: newBoard
-      // })

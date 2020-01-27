@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Gamelist from './Gamelist'
 import { connect } from 'react-redux'
-import { getAllGames, joinGame, fetchAllPlayers } from '../actions'
+import { joinGame } from '../actions'
 
 class GamelistContainer extends Component {
   joinHandle = (id, color) => {
@@ -18,7 +18,6 @@ class GamelistContainer extends Component {
 
 const mapStateToProps = (state) => ({
   games: state.listOfGames,
-  //players: state.listOfPlayers,
   user: state.currentUser
 })
 

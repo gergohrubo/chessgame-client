@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import GameDetailPage from './GameDetailPage'
 import { connect } from 'react-redux'
-import { getAllGames, joinGame, fetchAllPlayers } from '../actions'
+import { joinGame } from '../actions'
 import ChessboardContainer from './ChessboardContainer'
 
 class GameDetailPageContainer extends Component {
