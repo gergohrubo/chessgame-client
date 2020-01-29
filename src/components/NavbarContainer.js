@@ -5,7 +5,6 @@ import { logOut } from '../actions'
 
 class NavbarContainer extends Component {
   onClick = () => {
-    console.log('logout')
     this.props.dispatch(logOut())
   }
   render() {

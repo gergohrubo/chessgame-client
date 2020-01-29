@@ -17,7 +17,6 @@ class App extends React.Component {
     this.stream.onmessage = event => {
       const { data } = event
       const action = JSON.parse(data)
-      console.log('data from the stream', action)
       this.props.dispatch(action)
     }
   }
@@ -28,7 +27,6 @@ class App extends React.Component {
         <Switch>
           <Route path="/login" component={LoginContainer} />
           <Route path="/signup" component={SignupContainer} />
-          {/*<Route path="/game" component={Gamepage} />*/}
           <Route path="/game/:id" component={GameDetailPageContainer} />
           <Route component={Homepage} />
         </Switch>
