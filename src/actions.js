@@ -105,6 +105,8 @@ export const makeMove = (figureId, coordinate_X, coordinate_Y, gameId, jwt) => d
         case 402:
           dispatch(check())
           break
+        default:
+          break
       }
       console.error(error)
     })

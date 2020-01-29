@@ -6,7 +6,6 @@ import SignupContainer from './components/SignupContainer'
 import NavbarContainer from './components/NavbarContainer'
 import GameDetailPageContainer from './components/GameDetailPageContainer'
 import Footer from './components/Footer'
-import Gamepage from './components/Gamepage'
 import './App.css';
 import { connect } from 'react-redux'
 

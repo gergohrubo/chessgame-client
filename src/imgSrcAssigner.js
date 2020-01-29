@@ -10,6 +10,8 @@ export default function imgSrcAssigner(type, color, coordinate_X, coordinate_Y) 
               return Pieces.whitePawn.black
             case 1:
               return Pieces.whitePawn.white
+            default:
+              return
           }
         case 'Knight':
           switch ((coordinate_X + coordinate_Y) % 2) {
@@ -17,6 +19,8 @@ export default function imgSrcAssigner(type, color, coordinate_X, coordinate_Y) 
               return Pieces.whiteKnight.black
             case 1:
               return Pieces.whiteKnight.white
+            default:
+              return
           }
         case 'Bishop':
           switch ((coordinate_X + coordinate_Y) % 2) {
@@ -24,6 +28,8 @@ export default function imgSrcAssigner(type, color, coordinate_X, coordinate_Y) 
               return Pieces.whiteBishop.black
             case 1:
               return Pieces.whiteBishop.white
+            default:
+              return
           }
         case 'Rook':
           switch ((coordinate_X + coordinate_Y) % 2) {
@@ -31,6 +37,8 @@ export default function imgSrcAssigner(type, color, coordinate_X, coordinate_Y) 
               return Pieces.whiteRook.black
             case 1:
               return Pieces.whiteRook.white
+            default:
+              return
           }
         case 'Queen':
           switch ((coordinate_X + coordinate_Y) % 2) {
@@ -38,6 +46,8 @@ export default function imgSrcAssigner(type, color, coordinate_X, coordinate_Y) 
               return Pieces.whiteQueen.black
             case 1:
               return Pieces.whiteQueen.white
+            default:
+              return
           }
         case 'King':
           switch ((coordinate_X + coordinate_Y) % 2) {
@@ -45,7 +55,11 @@ export default function imgSrcAssigner(type, color, coordinate_X, coordinate_Y) 
               return Pieces.whiteKing.black
             case 1:
               return Pieces.whiteKing.white
+            default:
+              return
           }
+        default:
+          return
       }
     }
     case 'black': {
@@ -56,6 +70,8 @@ export default function imgSrcAssigner(type, color, coordinate_X, coordinate_Y) 
               return Pieces.blackPawn.black
             case 1:
               return Pieces.blackPawn.white
+            default:
+              return
           }
         case 'Knight':
           switch ((coordinate_X + coordinate_Y) % 2) {
@@ -63,6 +79,8 @@ export default function imgSrcAssigner(type, color, coordinate_X, coordinate_Y) 
               return Pieces.blackKnight.black
             case 1:
               return Pieces.blackKnight.white
+            default:
+              return
           }
         case 'Bishop':
           switch ((coordinate_X + coordinate_Y) % 2) {
@@ -70,6 +88,8 @@ export default function imgSrcAssigner(type, color, coordinate_X, coordinate_Y) 
               return Pieces.blackBishop.black
             case 1:
               return Pieces.blackBishop.white
+            default:
+              return
           }
         case 'Rook':
           switch ((coordinate_X + coordinate_Y) % 2) {
@@ -77,6 +97,8 @@ export default function imgSrcAssigner(type, color, coordinate_X, coordinate_Y) 
               return Pieces.blackRook.black
             case 1:
               return Pieces.blackRook.white
+            default:
+              return
           }
         case 'Queen':
           switch ((coordinate_X + coordinate_Y) % 2) {
@@ -84,6 +106,8 @@ export default function imgSrcAssigner(type, color, coordinate_X, coordinate_Y) 
               return Pieces.blackQueen.black
             case 1:
               return Pieces.blackQueen.white
+            default:
+              return
           }
         case 'King':
           switch ((coordinate_X + coordinate_Y) % 2) {
@@ -91,7 +115,11 @@ export default function imgSrcAssigner(type, color, coordinate_X, coordinate_Y) 
               return Pieces.blackKing.black
             case 1:
               return Pieces.blackKing.white
+            default:
+              return
           }
+        default:
+          return
       }
     }
     default:
