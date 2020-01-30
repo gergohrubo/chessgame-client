@@ -6,8 +6,8 @@ import Signup from './components/Signup'
 import Navbar from './components/Navbar'
 import GameDetailPage from './components/GameDetailPage'
 import Footer from './components/Footer'
-import './App.css';
 import { connect } from 'react-redux'
+import { appStyle } from './globalStyles'
 
 class App extends React.Component {
   //url = 'https://glacial-stream-52474.herokuapp.com'
@@ -22,7 +22,7 @@ class App extends React.Component {
   }
   render() {
     return (
-      <div className="App">
+      <div style={appStyle}>
         <Navbar />
         <Switch>
           <Route path="/login" component={Login} />

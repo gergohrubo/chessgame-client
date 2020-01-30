@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import Gamelist from './Gamelist'
 import { createGame } from '../actions'
 import CreateGameButton from './CreateGameButton'
+import { creategameStyle } from '../globalStyles'
 
 class Homepage extends Component {
   onClick = () => {
@@ -15,7 +16,7 @@ class Homepage extends Component {
           <h1>These are the games you can join</h1>
           <Gamelist />
         </div>
-        <div className="creategame">
+        <div style={creategameStyle}>
           {this.props.user.username && <CreateGameButton onClick={this.onClick} />}
         </div>
       </div>
