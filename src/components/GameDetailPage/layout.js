@@ -1,22 +1,7 @@
 import React from 'react';
 import { Typography, Card, CardActions, CardContent, Button } from '@material-ui/core';
-import assignPlayers from '../assignPlayer'
-import { makeStyles } from '@material-ui/core/styles';
-
-const useStyles = makeStyles(theme => ({
-  card: {
-    height: '100%',
-    display: 'flex',
-    flexDirection: 'column',
-  },
-  cardContent: {
-    flexGrow: 1
-  },
-  cardAction: {
-    display: 'flex',
-    justifyContent: 'center'
-  }
-}));
+import assignPlayers from '../../assignPlayer'
+import { useStyles } from './style'
 
 function checkIfThereIsAPlayer(game, color) {
   if (game.users) {

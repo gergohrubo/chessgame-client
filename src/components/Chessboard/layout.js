@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/Chessboard.css'
+import '../../styles/Chessboard.css'
 
 
 function Chessboard(props) {

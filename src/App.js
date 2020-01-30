@@ -1,10 +1,10 @@
 import React from 'react';
 import { Switch, Route } from "react-router-dom";
 import Homepage from './components/Homepage'
-import LoginContainer from './components/LoginContainer'
-import SignupContainer from './components/SignupContainer'
-import NavbarContainer from './components/NavbarContainer'
-import GameDetailPageContainer from './components/GameDetailPageContainer'
+import Login from './components/Login'
+import Signup from './components/Signup'
+import Navbar from './components/Navbar'
+import GameDetailPage from './components/GameDetailPage'
 import Footer from './components/Footer'
 import './App.css';
 import { connect } from 'react-redux'
@@ -23,11 +23,11 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <NavbarContainer />
+        <Navbar />
         <Switch>
-          <Route path="/login" component={LoginContainer} />
-          <Route path="/signup" component={SignupContainer} />
-          <Route path="/game/:id" component={GameDetailPageContainer} />
+          <Route path="/login" component={Login} />
+          <Route path="/signup" component={Signup} />
+          <Route path="/game/:id" component={GameDetailPage} />
           <Route component={Homepage} />
         </Switch>
         <Footer />

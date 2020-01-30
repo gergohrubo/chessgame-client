@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import Chessboard from './Chessboard'
+import Chessboard from './layout'
 import { connect } from 'react-redux'
-import imgSrcAssigner from '../imgSrcAssigner'
-import { makeMove } from '../actions'
+import imgSrcAssigner from '../../imgSrcAssigner'
+import { makeMove } from '../../actions'
 
 class ChessboardContainer extends Component {
   state = {
