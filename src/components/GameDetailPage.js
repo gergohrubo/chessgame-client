@@ -1,11 +1,7 @@
 import React from 'react';
-import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
+import { Typography, Card, CardActions, CardContent, Button } from '@material-ui/core';
 import assignPlayers from '../assignPlayer'
+import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -14,7 +10,11 @@ const useStyles = makeStyles(theme => ({
     flexDirection: 'column',
   },
   cardContent: {
-    flexGrow: 1,
+    flexGrow: 1
+  },
+  cardAction: {
+    display: 'flex',
+    justifyContent: 'center'
   }
 }));
 
@@ -50,17 +50,17 @@ function GameDetailPage(props) {
               <Typography gutterBottom variant="h5" component="h2">
                 Black player: {assignPlayers(game)['black']}
               </Typography>
-            </CardContent>
-            {!checkIfThereIsAPlayer(game, 'white') && props.user.jwt && <CardActions>
-              <Button size="small" color="primary" onClick={() => props.onClick(game.id, "white")}>
-                Join as white
-                </Button>
-            </CardActions>}
-            {!checkIfThereIsAPlayer(game, 'black') && props.user.jwt && <CardActions>
-              <Button size="small" color="primary" onClick={() => props.onClick(game.id, "black")}>
-                Join as black
+              {!checkIfThereIsAPlayer(game, 'white') && props.user.jwt && <CardActions className={classes.cardAction}>
+                <Button size="small" color="primary" variant="contained" onClick={() => props.onClick(game.id, "white")}>
+                  Join as white
               </Button>
-            </CardActions>}
+              </CardActions>}
+              {!checkIfThereIsAPlayer(game, 'black') && props.user.jwt && <CardActions className={classes.cardAction}>
+                <Button size="small" color="primary" variant="contained" onClick={() => props.onClick(game.id, "black")}>
+                  Join as black
+              </Button>
+              </CardActions>}
+            </CardContent>
           </Card>
         }
         return acc

@@ -18,22 +18,15 @@ export default function CreateGameButton(props) {
   return (
     <React.Fragment>
       <CssBaseline />
-      <Container className={classes.cardGrid} maxWidth="md">
-        <Grid container spacing={4}>
-          <Grid item xs={12} sm={6} md={4}>
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              color="primary"
-              className={classes.submit}
-              onClick={props.onClick}
-            >
-              Create New Game
+      <Button
+        type="submit"
+        variant="contained"
+        color="primary"
+        className={classes.submit}
+        onClick={props.onClick}
+      >
+        Create New Game
       </Button>
-          </Grid>
-        </Grid>
-      </Container>
     </React.Fragment>
   );
 }

@@ -13,3 +13,9 @@
   display: inline-block;
   width: 50%;
 }
+
+.creategame {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

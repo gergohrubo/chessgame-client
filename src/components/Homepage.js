@@ -12,10 +12,12 @@ class Homepage extends Component {
     return (
       <div>
         <div>
-          <h1>This is the homepage</h1>
+          <h1>These are the games you can join</h1>
           <GamelistContainer />
         </div>
-        {this.props.user.username && <CreateGameButton onClick={this.onClick} />}
+        <div className="creategame">
+          {this.props.user.username && <CreateGameButton onClick={this.onClick} />}
+        </div>
       </div>
     );
   }
