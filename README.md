@@ -48,6 +48,11 @@ En Passant | :x:
 
 After signup and login you can browse through games through the homepage or create a new one.
 
+![upload image](https://github.com/gergohrubo/chessgame-client/blob/master/src/images/screenshot1.png)
+
 When clicking on a game you get to the game's page where you can join as black or white
+
+
+![upload image](https://github.com/gergohrubo/chessgame-client/blob/master/src/images/screenshot2.png)
 
 Enjoy playing :slightly_smiling_face:
