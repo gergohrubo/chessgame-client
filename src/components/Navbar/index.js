@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import Navbar from './Navbar'
+import Navbar from './layout'
 import { connect } from 'react-redux'
-import { logOut } from '../actions'
+import { logOut } from '../../actions'
 
 class NavbarContainer extends Component {
   onClick = () => {
-    console.log('logout')
     this.props.dispatch(logOut())
   }
   render() {

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import GamelistContainer from './GamelistContainer'
-import UserlistContainer from './UserlistContainer'
+import Gamelist from './Gamelist'
 import { createGame } from '../actions'
 import CreateGameButton from './CreateGameButton'
+import { creategameStyle } from '../globalStyles'
 
 class Homepage extends Component {
   onClick = () => {
@@ -13,10 +13,12 @@ class Homepage extends Component {
     return (
       <div>
         <div>
-          <h1>This is the homepage</h1>
-          <GamelistContainer />
+          <h1>These are the games you can join</h1>
+          <Gamelist />
         </div>
-        {this.props.user.username && <CreateGameButton onClick={this.onClick} />}
+        <div style={creategameStyle}>
+          {this.props.user.username && <CreateGameButton onClick={this.onClick} />}
+        </div>
       </div>
     );
   }

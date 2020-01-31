@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import GameDetailPage from './GameDetailPage'
+import GameDetailPage from './layout'
 import { connect } from 'react-redux'
-import { getAllGames, joinGame, fetchAllPlayers } from '../actions'
-import ChessboardContainer from './ChessboardContainer'
+import { joinGame } from '../../actions'
+import Chessboard from '../Chessboard'
 
 class GameDetailPageContainer extends Component {
   joinHandle = (id, color) => {
@@ -12,7 +12,7 @@ class GameDetailPageContainer extends Component {
     return (
       <div>
         <GameDetailPage pageID={this.props.match.params.id} games={this.props.games} onClick={this.joinHandle} user={this.props.user} />
-        <ChessboardContainer gameID={this.props.match.params.id} />
+        <Chessboard gameID={this.props.match.params.id} />
       </div>
     );
   }
