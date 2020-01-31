@@ -5,6 +5,8 @@
 
 <h4 align="center">Multiplayer chess game</h4>
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/7314ee2e-12b0-4790-9cad-c69b4c8a2be5/deploy-status)](https://app.netlify.com/sites/chessgame-codaisseur-nadia-gergo/deploys)
+
 
 ### This is the frontend part of my Chess app. You can view the [backend](https://github.com/gergohrubo/chessgame-server), or checkout the [deployed version](https://chessgame-codaisseur-nadia-gergo.netlify.com/)
 
