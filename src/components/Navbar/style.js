@@ -10,7 +10,7 @@ export const useStyles = makeStyles(theme => ({
     display: 'inline',
     position: 'absolute',
     right: 0,
-    margin: 'auto 1 %'
+    margin: 'auto 1%'
   },
   logout: {
     display: 'inline'
