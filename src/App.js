@@ -10,8 +10,8 @@ import { connect } from 'react-redux'
 import { appStyle } from './globalStyles'
 
 class App extends React.Component {
-  //url = 'https://glacial-stream-52474.herokuapp.com'
-  url = 'http://localhost:4000'
+  url = 'https://chess-app-gh.herokuapp.com'
+  //url = 'http://localhost:4000'
   stream = new EventSource(`${this.url}/stream`)
   componentDidMount() {
     this.stream.onmessage = event => {
