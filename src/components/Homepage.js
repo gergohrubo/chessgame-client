@@ -7,7 +7,7 @@ import { creategameStyle } from '../globalStyles'
 
 class Homepage extends Component {
   onClick = () => {
-    this.props.dispatch(createGame(this.props.user.username, this.props.history.push))
+    this.props.dispatch(createGame(this.props.user.jwt, this.props.user.username, this.props.history.push))
   }
   render() {
     return (

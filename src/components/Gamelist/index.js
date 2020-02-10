@@ -4,12 +4,9 @@ import { connect } from 'react-redux'
 import { joinGame } from '../../actions'
 
 class GamelistContainer extends Component {
-  joinHandle = (id, color) => {
-    this.props.dispatch(joinGame(this.props.user.jwt, id, color))
-  }
   render() {
     return (
-      <Gamelist games={this.props.games} onClick={this.joinHandle} />
+      <Gamelist games={this.props.games} />
     );
   }
 }
