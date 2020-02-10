@@ -40,35 +40,18 @@ export const signUp = (username, password, push) => () => {
     .catch(console.error)
 }
 
-export const SAVE_GAMES = 'SAVE_GAMES'
-
-function saveGames(games) {
-  return {
-    type: SAVE_GAMES,
-    payload: games
-  }
-}
-
-export const getAllGames = () => dispatch => {
-  request
-    .get(`${baseUrl}/game`)
-    .then(response => {
-      dispatch(saveGames(response.body))
-    })
-    .catch(console.error)
-}
-
-export const createGame = (username, push) => dispatch => {
+export const createGame = (jwt, username, push) => () => {
   const data = { name: username }
   request
     .post(`${baseUrl}/game`)
+    .set('Authorization', `Bearer ${jwt}`)
     .send(data)
     .then(response => {
-      dispatch(getAllGames())
       if (push) {
         push('/')
       }
     })
+    .catch(console.error)
 }
 
 export const joinGame = (jwt, gameId, color, push) => () => {
@@ -82,6 +65,7 @@ export const joinGame = (jwt, gameId, color, push) => () => {
         push('/')
       }
     })
+    .catch(console.error)
 }
 
 export const makeMove = (figureId, coordinate_X, coordinate_Y, gameId, jwt) => dispatch => {
